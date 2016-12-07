@@ -1,0 +1,34 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`krumponent-sprocket-data`
+Component for Sprocket data subscription
+
+@demo demo/index.html 
+-->
+
+<dom-module id="krumponent-sprocket-data">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'krumponent-sprocket-data',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'krumponent-sprocket-data',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
