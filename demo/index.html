@@ -20,7 +20,10 @@
       <h3>Basic krumponent-sprocket-data demo</h3>
       <demo-snippet>
         <template>
-          <krumponent-sprocket-data></krumponent-sprocket-data>
+          <template is="dom-bind">
+            <krumponent-sprocket-data sprocket-secret="asd" sprocket-user="asd" sprocket-stream="5848aee9a953511f007ece3c" data="{{data}}" auto log></krumponent-sprocket-data>
+            <div>{{data.payload.description}}</div>
+          </template>
         </template>
       </demo-snippet>
     </div>

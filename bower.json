@@ -3,7 +3,8 @@
   "description": "Component for Sprocket data subscription",
   "main": "krumponent-sprocket-data.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0"
+    "polymer": "Polymer/polymer#^1.4.0",
+    "socket.io-client": "^1.7.1"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
