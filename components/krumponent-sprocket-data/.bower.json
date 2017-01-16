@@ -1,0 +1,26 @@
+{
+  "name": "krumponent-sprocket-data",
+  "description": "Component for Sprocket data subscription",
+  "main": "krumponent-sprocket-data.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "socket.io-client": "^1.7.1"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/krumio/krumponent-sprocket-data",
+  "_release": "b94fec035e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "b94fec035eca6574f51f52fc24309afb9f61f6fc"
+  },
+  "_source": "https://github.com/krumio/krumponent-sprocket-data.git",
+  "_target": "master",
+  "_originalSource": "krumio/krumponent-sprocket-data",
+  "_direct": true
+}
