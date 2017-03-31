@@ -1,3 +1,5 @@
+![Build Status](https://api.travis-ci.org/krumIO/krumponent-sprocket-data.svg?branch=master)
+
 # \<krumponent-sprocket-data\>
 
 Component for Sprocket data subscription
