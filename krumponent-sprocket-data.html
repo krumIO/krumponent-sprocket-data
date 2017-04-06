@@ -73,7 +73,7 @@ Component for Sprocket data subscription
       
       /** Initiate connection to Sprocket */
       connect: function(){
-        this._log(console.log("initializing connection.."));
+        this._log("initializing connection..");
         if(this.sprocketUser && this.sprocketSecret && this.sprocketStream){
           if(!this._socket){
             this._socket = new io.connect(this._tempaddress);
@@ -82,12 +82,12 @@ Component for Sprocket data subscription
           }
           this._socket.on('connect', function () {
               this._status = "connected";
-              this._log(console.log(this._status));
+              this._log(this._status);
               this._subscribe();
           }.bind(this));
           this._socket.on('disconnect', function () {
               this._status = "disconnected";
-              this._log(console.log(this._status));
+              this._log(this._status);
               this._cleanup();
           }.bind(this));
 
@@ -105,10 +105,11 @@ Component for Sprocket data subscription
       detached: function() {
         this.disconnect();
       },
-      /** Check if logging is enabled */
-      _log: function(callback){
-        if(this.log)
-          return callback;
+      /** Print log message if logging is enabled */
+      _log: function(log){
+        if(this.log){
+          console.log(log);
+        }
       },
       /** Detect subscription changes and trigger reconnect workflow */
       _streamChanged: function(user, secret, stream){
@@ -127,23 +128,23 @@ Component for Sprocket data subscription
 
       _subscribe: function(){
         //subscribe to feed
-        this._log(console.log(this._socket));
-        this._log(console.log("subscription"));
+        this._log(this._socket);
+        this._log("subscription");
         this._socket.emit('subscribe', { user : this.sprocketUser, secret : this.sprocketUser, stream : this.sprocketStream } );
 
         this._socket.on("complete", function(message){
-          this._log(console.log("subscription status - " + JSON.stringify(message)));
+          this._log("subscription status - " + JSON.stringify(message));
         }.bind(this));
 
         this._socket.on("feeddata", function(message){
-          this._log(console.log(message));
+          this._log(message);
           this.set('data', message);
         }.bind(this));
         
           
       },
       _cleanup: function(){
-        this._log(console.log("cleanup"));
+        this._log("cleanup");
         // kill the listeners
         this._socket.removeAllListeners("complete");
         this._socket.removeAllListeners("feeddata");
