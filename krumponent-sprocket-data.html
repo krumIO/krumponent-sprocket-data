@@ -56,9 +56,9 @@ Component for Sprocket data subscription
           type: Object,
           notify: true
         },
-        _tempaddress: {
+        sprocketUrl: {
           type: String,
-          value: "http://sprocket.krum.io:9999"
+          value: "/"
           //value: "localhost:9999"
         },
         _status: {
@@ -76,8 +76,8 @@ Component for Sprocket data subscription
         this._log("initializing connection..");
         if(this.sprocketUser && this.sprocketSecret && this.sprocketStream){
           if(!this._socket){
-            this._socket = new io.connect(this._tempaddress);
-            // future // this._socket = io.connect(this._tempaddress, {query: 'token='+this.auth.token});
+            this._socket = new io.connect(this.sprocketUrl);
+            // future // this._socket = io.connect(this.sprocketUrl, {query: 'token='+this.auth.token});
             
           }
           this._socket.on('connect', function () {
