@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="comms-import.html">
+<link rel="import" href="../krumponent-data-socketio/socketio-imports.html">
 <!--
 `krumponent-sprocket-data`
 Component for Sprocket data subscription
@@ -70,7 +70,10 @@ Component for Sprocket data subscription
         // '_statusChanged(_status)'
       ],
 
-      
+      attached: function(){
+        if(this.auto)
+          this.connect();
+      },
       /** Initiate connection to Sprocket */
       connect: function(){
         this._log("initializing connection..");
@@ -103,7 +106,7 @@ Component for Sprocket data subscription
         
       },
       detached: function() {
-        this.disconnect();
+        // this.disconnect();
       },
       /** Print log message if logging is enabled */
       _log: function(log){
