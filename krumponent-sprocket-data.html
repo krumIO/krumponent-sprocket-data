@@ -67,6 +67,7 @@ Component for Sprocket data subscription
       },
       observers: [
         '_streamChanged(sprocketUser, sprocketSecret, sprocketStream)',
+        '_urlChanged(sprocketUrl)',
         // '_statusChanged(_status)'
       ],
 
@@ -96,6 +97,15 @@ Component for Sprocket data subscription
 
           
         }
+      },
+      /** Reset socket and reconnect on change to url. */
+      _urlChanged: function(sprocketUrl) {
+        if(this._socket) {
+          this._cleanup();
+          this._socket.destroy();
+          this.set('_socket', undefined);
+        }
+        this.connect();
       },
       /** Initiate connection to Sprocket. Will always be called by detached. */
       disconnect: function(){
@@ -143,6 +153,7 @@ Component for Sprocket data subscription
           this._log(message);
           this.set('data', message);
         }.bind(this));
+
         
           
       },
