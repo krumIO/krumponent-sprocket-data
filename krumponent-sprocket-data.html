@@ -98,8 +98,14 @@ Component for Sprocket data subscription
           
         }
       },
-      /** Reset socket and reconnect on change to url. */
+      /** If the url changes, we must reconnect for the socket to use the new url. */
       _urlChanged: function(sprocketUrl) {
+        if(this.auto)
+          this.reconnect();
+      },
+      /** Cleans up the socket and then reconnects. */
+      reconnect: function() {
+        // Cleanup old socket.
         if(this._socket) {
           this._cleanup();
           this._socket.destroy();
