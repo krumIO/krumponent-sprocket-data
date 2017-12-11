@@ -158,6 +158,7 @@ Component for Sprocket data subscription
         this._socket.on("feeddata", function(message){
           this._log(message);
           this.set('data', message);
+          this.dispatchEvent(new CustomEvent('data-received', { detail: message }));
         }.bind(this));
 
         
