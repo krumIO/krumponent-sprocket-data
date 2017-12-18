@@ -100,8 +100,13 @@ Component for Sprocket data subscription
       },
       /** If the url changes, we must reconnect for the socket to use the new url. */
       _urlChanged: function(sprocketUrl) {
-        if(this.auto)
-          this.reconnect();
+          if(this.auto) {
+              // This is wrapped in a set timeout to avoid timing bugs when the url is
+              // set immediately.
+              setTimeout(function() {
+                  this.reconnect();
+              }.bind(this), 0);
+          }
       },
       /** Cleans up the socket and then reconnects. */
       reconnect: function() {
@@ -160,13 +165,12 @@ Component for Sprocket data subscription
           this.set('data', message);
           this.dispatchEvent(new CustomEvent('data-received', { detail: message }));
         }.bind(this));
-
-        
-          
       },
       _cleanup: function(){
         this._log("cleanup");
         // kill the listeners
+        this._socket.removeAllListeners("connect");
+        this._socket.removeAllListeners("disconnect");
         this._socket.removeAllListeners("complete");
         this._socket.removeAllListeners("feeddata");
       },
