@@ -1,0 +1,15 @@
+{
+    "name": "@krumio/krumponent-sprocket-data",
+    "private": true,
+    "description": "extension of krumponent-data-socketio for sprocket",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/krumio/krumponent-sprocket-data.git"
+    },
+    "devDependencies": {},
+    "version": "0.3.0",
+    "dependencies": {
+        "@krumio/krumponent-data-socketio": "krumio/krumponent-data-socketio#0.3.0",
+        "@polymer/polymer": "^2.0.0"
+    }
+}
