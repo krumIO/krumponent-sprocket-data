@@ -1,15 +1,27 @@
 {
-    "name": "@krumio/krumponent-sprocket-data",
-    "private": true,
-    "description": "extension of krumponent-data-socketio for sprocket",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/krumio/krumponent-sprocket-data.git"
-    },
-    "devDependencies": {},
-    "version": "0.3.0",
-    "dependencies": {
-        "@krumio/krumponent-data-socketio": "krumio/krumponent-data-socketio#0.3.0",
-        "@polymer/polymer": "^2.0.0"
-    }
+  "description": "extension of krumponent-data-socketio for sprocket",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/krumio/krumponent-sprocket-data.git"
+  },
+  "name": "@krumio/krumponent-sprocket-data",
+  "devDependencies": {
+    "@polymer/iron-component-page": "^4.0.0",
+    "@polymer/iron-demo-helpers": "^3.0.0",
+    "wct-browser-legacy": "^1.0.1",
+    "@krumio/krumponent-data-socketio": "^3.0.0"
+  },
+  "version": "0.3.0",
+  "dependencies": {
+    "@krumio/krumponent-data-socketio": "krumio/krumponent-data-socketio#0.3.0",
+    "@polymer/polymer": "^3.0.0",
+    "socket.io-client": "^1.7.1"
+  },
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0"
+  },
+  "main": "krumponent-sprocket-data.js"
 }
