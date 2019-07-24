@@ -4,12 +4,12 @@
   "main": "krumponent-sprocket-data.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
-    "socket.io-client": "^1.7.1"
+    "socket.io-client": "^1.7.1",
+    "krumponent-data-socketio": "krumio/krumponent-data-socketio"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#1 - 2",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#1 - 2",
-    "web-component-tester": "^6.1.5",
-    "krumponent-data-socketio": "krumio/krumponent-data-socketio"
+    "web-component-tester": "^6.1.5"
   }
 }
