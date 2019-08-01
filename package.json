@@ -11,7 +11,7 @@
     "wct-browser-legacy": "^1.0.1",
     "@krumio/krumponent-data-socketio": "^3.0.0"
   },
-  "version": "0.3.0",
+  "version": "0.4.0",
   "dependencies": {
     "@krumio/krumponent-data-socketio": "krumio/krumponent-data-socketio#0.3.0",
     "@polymer/polymer": "^3.0.0",
