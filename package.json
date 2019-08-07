@@ -8,12 +8,11 @@
   "devDependencies": {
     "@polymer/iron-component-page": "^4.0.0",
     "@polymer/iron-demo-helpers": "^3.0.0",
-    "wct-browser-legacy": "^1.0.1",
-    "@krumio/krumponent-data-socketio": "^3.0.0"
+    "wct-browser-legacy": "^1.0.1"
   },
   "version": "0.4.3",
   "dependencies": {
-    "@krumio/krumponent-data-socketio": "^0.4.0",
+    "@krumio/krumponent-data-socketio": "^0.4.2",
     "@polymer/polymer": "^3.0.0",
     "socket.io-client": "^2.2.0"
   },
