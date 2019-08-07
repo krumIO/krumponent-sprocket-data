@@ -10,7 +10,7 @@
     "@polymer/iron-demo-helpers": "^3.0.0",
     "wct-browser-legacy": "^1.0.1"
   },
-  "version": "0.4.3",
+  "version": "0.4.4",
   "dependencies": {
     "@krumio/krumponent-data-socketio": "^0.4.2",
     "@polymer/polymer": "^3.0.0",
