@@ -89,18 +89,90 @@ Polymer({
       if(!this._socket){
         this._socket = new io.connect(this.sprocketUrl);
         // future // this._socket = io.connect(this.sprocketUrl, {query: 'token='+this.auth.token});
-        
+        this._socket.on('connect', function () {
+            this._status = "connected";
+            this._log(this._status);
+            this._subscribe();
+            this.dispatchEvent(new CustomEvent('socket-connected', {
+                bubbles: true,
+                composed: true,
+                detail: {
+                    url: this.sprocketUrl,
+                    status: this._status,
+                },
+            }));
+        }.bind(this));
+
+        this._socket.on('reconnect', function () {
+            this._status = "connected";
+            this._log(this._status);
+            this._subscribe();
+            this.dispatchEvent(new CustomEvent('socket-reconnected', {
+                bubbles: true,
+                composed: true,
+                detail: {
+                    url: this.sprocketUrl,
+                    status: this._status,
+                },
+            }));
+        }.bind(this));
+
+        this._socket.on('connect_error', function (err) {
+            this._status = "error";
+            this._log(this._status, err);
+            this.dispatchEvent(new CustomEvent('socket-connect-error', {
+                bubbles: true,
+                composed: true,
+                detail: {
+                    url: this.sprocketUrl,
+                    status: this._status,
+                    error: err,
+                },
+            }));
+        }.bind(this));
+
+        this._socket.on('connect_timeout', function (err) {
+            this._status = "error";
+            this._log(this._status, err);
+            this.dispatchEvent(new CustomEvent('socket-connect-error', {
+                bubbles: true,
+                composed: true,
+                detail: {
+                    url: this.sprocketUrl,
+                    status: this._status,
+                    error: err,
+                },
+            }));
+        }.bind(this));
+
+        this._socket.on('error', function (err) {
+            this._status = "error";
+            this._log(this._status, err);
+            this.dispatchEvent(new CustomEvent('socket-error', {
+                bubbles: true,
+                composed: true,
+                detail: {
+                    url: this.sprocketUrl,
+                    status: this._status,
+                    error: err,
+                },
+            }));
+        }.bind(this));
+
+        this._socket.on('disconnect', function () {
+            this._status = "disconnected";
+            this._log(this._status);
+            this._cleanup();
+            this.dispatchEvent(new CustomEvent('socket-disconnected', {
+                bubbles: true,
+                composed: true,
+                detail: {
+                    url: this.sprocketUrl,
+                    status: this._status,
+                },
+            }));
+        }.bind(this));
       }
-      this._socket.on('connect', function () {
-          this._status = "connected";
-          this._log(this._status);
-          this._subscribe();
-      }.bind(this));
-      this._socket.on('disconnect', function () {
-          this._status = "disconnected";
-          this._log(this._status);
-          this._cleanup();
-      }.bind(this));
 
       
     }
